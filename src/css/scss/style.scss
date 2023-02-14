@@ -1,1 +1,129 @@
-@import "_preset";
+$prime: #ff6e48;
+$ciBlue: #00fff1;
+$ciRed: #ff00aa;
+$ciWhite: #ffffff;
+$ciGreen: #46fcb4;
+$ciSecond: #0c1016;
+
+$roboto: 'Roboto';
+
+@font-face {
+	font-family: $roboto;
+	src: url('https://assets.codepen.io/907368/Roboto-Bold.ttf');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: $roboto;
+	src: url('https://assets.codepen.io/907368/Roboto-Regular.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: $roboto;
+	src: url('https://assets.codepen.io/907368/Roboto-Light.ttf');
+	font-weight: 300;
+}
+
+body,
+html {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $ciSecond;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	color: $ciWhite;
+	font-family: $roboto;
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+// Tutorial Start
+$size: 3rem;
+$max: 5;
+
+.animation {
+	transition: all 600ms ease-in-out;
+}
+
+.size {
+	width: $size;
+	height: $size;
+	border-radius: $size;
+}
+
+.radial {
+	display: grid;
+	place-items: center;
+	position: relative;
+	filter: url('#goo');
+	@extend .size;
+	&:hover {
+		.radial-background {
+			scale: 4;
+		}
+		.radial-button {
+			offset-distance: 15%;
+			transition-delay: 50ms;
+			@for $i from 1 through $max {
+				&-#{$i} {
+					offset-distance: $i * (70% / $max);
+					transition-delay: $i * 50ms;
+					img {
+						transition-delay: $i * 150ms;
+						opacity: 1;
+						scale: 0.7;
+					}
+				}
+			}
+		}
+	}
+	.radial-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		@extend .size;
+	}
+	button {
+		border: none;
+		display: grid;
+		place-items: center;
+		background-color: $prime;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+		@extend .size;
+		img {
+			width: $size * 0.5;
+			height: $size * 0.5;
+		}
+	}
+	.radial-button {
+		position: absolute;
+		top: -$size * 0.86;
+		left: -$size * 0.86;
+		z-index: 1;
+		offset-path: path(
+			'm.5,91.21c4.89,40.97,40.37,72.55,82.95,71.26,41.84-1.27,76.17-34.8,78.36-76.6C164.26,39.15,127.1.5,80.92.5,49.47.5,22.2,18.43,8.78,44.62.15,61.48,12.48,81.5,31.42,81.5h49.5'
+		);
+		offset-distance: 100%;
+		offset-rotate: 0deg;
+		@extend .animation;
+		img {
+			opacity: 0;
+			scale: 0;
+			@extend .animation;
+		}
+	}
+}

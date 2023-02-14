@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("https://assets.codepen.io/907368/Roboto-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("https://assets.codepen.io/907368/Roboto-Regular.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("https://assets.codepen.io/907368/Roboto-Light.ttf");
+  font-weight: 300;
+}
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c1016;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: "Roboto";
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.animation, .radial .radial-button img, .radial .radial-button {
+  transition: all 600ms ease-in-out;
+}
+
+.size, .radial button, .radial .radial-background, .radial {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+}
+
+.radial {
+  display: grid;
+  place-items: center;
+  position: relative;
+  filter: url("#goo");
+}
+.radial:hover .radial-background {
+  scale: 4;
+}
+.radial:hover .radial-button {
+  offset-distance: 15%;
+  transition-delay: 50ms;
+}
+.radial:hover .radial-button-1 {
+  offset-distance: 14%;
+  transition-delay: 50ms;
+}
+.radial:hover .radial-button-1 img {
+  transition-delay: 150ms;
+  opacity: 1;
+  scale: 0.7;
+}
+.radial:hover .radial-button-2 {
+  offset-distance: 28%;
+  transition-delay: 100ms;
+}
+.radial:hover .radial-button-2 img {
+  transition-delay: 300ms;
+  opacity: 1;
+  scale: 0.7;
+}
+.radial:hover .radial-button-3 {
+  offset-distance: 42%;
+  transition-delay: 150ms;
+}
+.radial:hover .radial-button-3 img {
+  transition-delay: 450ms;
+  opacity: 1;
+  scale: 0.7;
+}
+.radial:hover .radial-button-4 {
+  offset-distance: 56%;
+  transition-delay: 200ms;
+}
+.radial:hover .radial-button-4 img {
+  transition-delay: 600ms;
+  opacity: 1;
+  scale: 0.7;
+}
+.radial:hover .radial-button-5 {
+  offset-distance: 70%;
+  transition-delay: 250ms;
+}
+.radial:hover .radial-button-5 img {
+  transition-delay: 750ms;
+  opacity: 1;
+  scale: 0.7;
+}
+.radial .radial-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.radial button {
+  border: none;
+  display: grid;
+  place-items: center;
+  background-color: #ff6e48;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.radial button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.radial .radial-button {
+  position: absolute;
+  top: -2.58rem;
+  left: -2.58rem;
+  z-index: 1;
+  offset-path: path("m.5,91.21c4.89,40.97,40.37,72.55,82.95,71.26,41.84-1.27,76.17-34.8,78.36-76.6C164.26,39.15,127.1.5,80.92.5,49.47.5,22.2,18.43,8.78,44.62.15,61.48,12.48,81.5,31.42,81.5h49.5");
+  offset-distance: 100%;
+  offset-rotate: 0deg;
+}
+.radial .radial-button img {
+  opacity: 0;
+  scale: 0;
+}/*# sourceMappingURL=style.css.map */
